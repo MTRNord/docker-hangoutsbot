@@ -1,5 +1,5 @@
 FROM alpine:3.4
-MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
+MAINTAINER MTRNord <mtrnord1@gmail.com>
 
 # Hangoutsbot version
 ENV HOB_VERSION 2.7.9
@@ -19,5 +19,5 @@ RUN apk add --update ca-certificates gcc git python3-dev tar wget \
 
 VOLUME /etc/hangoutsbot
 
-CMD ["/opt/hangoutsbot/hangupsbot/hangupsbot.py", "--config", "/etc/hangoutsbot/config.json", \
-     "--cookies", "/etc/hangoutsbot/cookies.json", "--memory", "/etc/hangoutsbot/memory.json"]
+COPY . /app
+CMD ["/bin/bash", "/app/start"]
