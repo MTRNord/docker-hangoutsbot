@@ -7,7 +7,7 @@ if [[ "$INITSYSTEM" == "on" ]]; then
 	echo "root:$PASSWD" | chpasswd
   	echo "RUNNING"
   	dropbear -REm -p 22
-  	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json
+  	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /data/hangoutsbot/config.json --cookies /data/hangoutsbot/cookies.json --memory /data/hangoutsbot/memory.json
 else
 	#Set the root password as root if not set as an ENV variable
 	export PASSWD=${PASSWD:=root}
@@ -15,7 +15,7 @@ else
 	echo "root:$PASSWD" | chpasswd
 	echo "RUNNING"
 	dropbear -REm -p 22
-	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json
+	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /data/hangoutsbot/config.json --cookies /data/hangoutsbot/cookies.json --memory /data/hangoutsbot/memory.json
 fi
 
 while true
