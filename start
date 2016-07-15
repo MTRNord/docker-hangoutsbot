@@ -1,14 +1,19 @@
 #!/bin/bash
+#Set the root password as root if not set as an ENV variable
+export PASSWD=${PASSWD:=root}
+#Set the root password
+echo "root:$PASSWD" | chpasswd
 if [[ "$INITSYSTEM" == "on" ]]; then
-  echo "RUNNING"
-  /opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json
+  	echo "RUNNING"
+  	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json; python main.py
 else
 	echo "RUNNING"
-	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json
+	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json; python main.py
 fi
 
 while true
 do
 	echo "App exited but container is still running to allow web terminal access"
+	python main.py
 	sleep 3600
 done
