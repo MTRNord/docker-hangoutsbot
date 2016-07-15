@@ -20,5 +20,7 @@ RUN apk add --update ca-certificates gcc git python3-dev tar wget \
 
 VOLUME /etc/hangoutsbot
 
+COPY ./plugins/ /opt/hangoutsbot/hangupsbot/plugins/
+
 CMD ["/opt/hangoutsbot/hangupsbot/hangupsbot.py", "--config", "/etc/hangoutsbot/config.json", \
      "--cookies", "/etc/hangoutsbot/cookies.json", "--memory", "/etc/hangoutsbot/memory.json"]
