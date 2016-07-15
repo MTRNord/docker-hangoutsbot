@@ -6,7 +6,7 @@ ENV HOB_VERSION 2.7.9
 
 # Create Hangoutsbot directories
 RUN mkdir -p /opt/hangoutsbot /etc/hangoutsbot
-
+VOLUME /etc/hangoutsbot
 # Set Hangoutsbot archive URL
 ENV TARBALL_URL https://api.github.com/repos/hangoutsbot/hangoutsbot/tarball/${HOB_VERSION}
 
