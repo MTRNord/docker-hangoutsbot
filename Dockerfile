@@ -22,6 +22,6 @@ RUN touch /var/log/lastlog
 COPY . /app
 WORKDIR /app
 
-RUN mv /app/plugins/* /opt/hangoutsbot/hangupsbot/plugins/
+COPY ./plugins/ /opt/hangoutsbot/hangupsbot/plugins/
 
 CMD ["/bin/sh", "/app/start"]
