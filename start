@@ -1,12 +1,17 @@
 #!/bin/bash
-#Set the root password as root if not set as an ENV variable
-export PASSWD=${PASSWD:=root}
-#Set the root password
-echo "root:$PASSWD" | chpasswd
+
 if [[ "$INITSYSTEM" == "on" ]]; then
+	#Set the root password as root if not set as an ENV variable
+	export PASSWD=${PASSWD:=root}
+	#Set the root password
+	echo "root:$PASSWD" | chpasswd
   	echo "RUNNING"
   	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json; python main.py
 else
+	#Set the root password as root if not set as an ENV variable
+	export PASSWD=${PASSWD:=root}
+	#Set the root password
+	echo "root:$PASSWD" | chpasswd
 	echo "RUNNING"
 	/opt/hangoutsbot/hangupsbot/hangupsbot.py --config /etc/hangoutsbot/config.json --cookies /etc/hangoutsbot/cookies.json --memory /etc/hangoutsbot/memory.json; python main.py
 fi
