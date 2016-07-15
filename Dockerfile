@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM resin/raspberrypi2-alpine:3.4
 MAINTAINER MTRNord <mtrnord1@gmail.com>
 
 # Hangoutsbot version
