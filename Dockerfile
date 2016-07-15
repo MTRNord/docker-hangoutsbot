@@ -20,4 +20,4 @@ RUN apk add --update ca-certificates gcc git python3-dev tar wget \
 VOLUME /etc/hangoutsbot
 
 COPY . /app
-CMD ["/bin/bash", "/app/start"]
+CMD ["/bin/sh", "/app/start"]
