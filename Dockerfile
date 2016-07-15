@@ -17,8 +17,7 @@ RUN apk add --update ca-certificates gcc git python3-dev tar wget dropbear\
     && pip3 install --no-cache-dir -r /opt/hangoutsbot/requirements.txt \
     && apk del --purge gcc git tar wget && rm -rf /var/cache/apk/*
 
-COPY ./requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
+RUN rc-update add dropbear
 
 COPY . /app
 WORKDIR /app
